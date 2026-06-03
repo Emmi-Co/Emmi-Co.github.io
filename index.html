@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="icon" href="Media/logo-dark.jpg" type="image/jpeg">
+  <link rel="icon" href="Media/logo-light-rect.jpg" type="image/jpeg">
   <style>
     :root{
       --bg:#fff; --bg-soft:#faf7f2; --bg-beige:#efe7da;
@@ -39,8 +39,9 @@
     .nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--grey-line)}
     .nav-inner{max-width:var(--max-width);margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px}
     .nav-brand{display:flex;align-items:center;gap:12px;font-family:'Playfair Display',serif;font-size:1.25rem;letter-spacing:.04em}
-    .nav-brand img{height:38px;width:auto}
-    .nav-links{display:flex;gap:32px;list-style:none;align-items:center}
+    .nav-brand img{height:42px;width:auto}
+    .nav-links{display:flex;align-items:center;margin-left:auto}
+    .links-wrap{display:flex;gap:32px;list-style:none;align-items:center}
     .nav-links a{font-size:.92rem;font-weight:500;letter-spacing:.02em;color:var(--grey-deep);position:relative;cursor:pointer}
     .nav-links a.active::after,.nav-links a:hover::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--accent-warm)}
     .nav-cta{display:flex;align-items:center;gap:14px}
@@ -200,7 +201,7 @@
       .nav-links{position:fixed;top:0;right:0;height:100dvh;width:min(340px,88vw);background:linear-gradient(180deg,#fff 0%,var(--bg-soft) 100%);flex-direction:column;gap:0;padding:0;border-left:1px solid var(--grey-line);box-shadow:-20px 0 60px rgba(0,0,0,.18);transform:translateX(100%);transition:transform .4s cubic-bezier(.16,1,.3,1);display:flex;align-items:stretch;z-index:99;overflow-y:auto}
       .nav-links.open{transform:translateX(0)}
       .drawer-brand{display:flex;flex-direction:column;align-items:center;padding:36px 24px 18px;border-bottom:1px solid var(--grey-line);background:#fff;text-align:center}
-      .drawer-brand img{height:44px;width:auto;margin-bottom:10px}
+      .drawer-brand img{height:38px;width:auto;margin-bottom:10px}
       .drawer-brand .tag{font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent-warm);font-weight:600}
       .nav-links .links-wrap{flex:1;display:flex;flex-direction:column;padding:20px 28px;gap:0;list-style:none;width:100%}
       .nav-links .links-wrap li{width:100%;border:none;list-style:none}
@@ -274,7 +275,7 @@
       /* Ornament gets bigger */
       .ornament{padding:8px 0;max-width:160px}
       /* Nav adjustments */
-      .nav-brand img{height:34px}
+      .nav-brand img{height:30px;width:auto}
       .nav-inner{padding:14px 20px}
       /* Buttons */
       .btn{padding:14px 26px;font-size:.78rem;letter-spacing:.18em}
@@ -304,10 +305,10 @@
   <!-- NAV -->
   <nav class="nav">
     <div class="nav-inner">
-      <a class="nav-brand" data-link="home"><img src="Media/logo-dark.jpg" alt="Emmi & Co Hair logo" /></a>
+      <a class="nav-brand" data-link="home"><img src="Media/logo-light-rect.jpg" alt="Emmi & Co Hair logo" /></a>
       <div class="nav-links">
         <div class="drawer-brand">
-          <img src="Media/logo-dark.jpg" alt="Emmi & Co Hair" />
+          <img src="Media/logo-light-rect.jpg" alt="Emmi & Co Hair" />
           <span class="tag">Benoni · Rynfield</span>
         </div>
         <ul class="links-wrap">
@@ -696,16 +697,16 @@
       <div class="container">
         <div class="contact-grid">
           <div>
-            <form data-form="contact">
+            <form data-form="contact" action="https://formspree.io/f/mkoawvko" method="POST">
               <div class="row-2">
-                <div class="field"><label>First name</label><input type="text" autocomplete="given-name" required/></div>
-                <div class="field"><label>Last name</label><input type="text" autocomplete="family-name" required/></div>
+                <div class="field"><label>First name</label><input type="text" name="first_name" autocomplete="given-name" required/></div>
+                <div class="field"><label>Last name</label><input type="text" name="last_name" autocomplete="family-name" required/></div>
               </div>
-              <div class="field"><label>Email</label><input type="email" inputmode="email" autocomplete="email" required/></div>
-              <div class="field"><label>Phone</label><input type="tel" inputmode="tel" autocomplete="tel" required/></div>
+              <div class="field"><label>Email</label><input type="email" name="email" inputmode="email" autocomplete="email" required/></div>
+              <div class="field"><label>Phone</label><input type="tel" name="phone" inputmode="tel" autocomplete="tel" required/></div>
               <div class="field">
                 <label>Service interested in</label>
-                <select required>
+                <select name="service" required>
                   <option value="">Select a service…</option>
                   <option>Balayage</option>
                   <option>Foils / Highlights</option>
@@ -718,8 +719,8 @@
                   <option>Other</option>
                 </select>
               </div>
-              <div class="field"><label>Preferred date / time</label><input type="text" placeholder="e.g. Saturday morning, 14 June"/></div>
-              <div class="field"><label>Tell us about your hair</label><textarea placeholder="Length, current colour, what you're hoping for…"></textarea></div>
+              <div class="field"><label>Preferred date / time</label><input type="text" name="preferred_date_time" placeholder="e.g. Saturday morning, 14 June"/></div>
+              <div class="field"><label>Tell us about your hair</label><textarea name="hair_notes" placeholder="Length, current colour, what you're hoping for…"></textarea></div>
               <button class="btn btn-primary" type="submit">Send booking request</button>
               <div class="success-msg">Thank you! We've received your request and will be in touch shortly. ✨</div>
             </form>
@@ -867,8 +868,53 @@
       const f=e.target;
       if(f.matches('[data-form="contact"]')){
         e.preventDefault();
-        f.querySelector('.success-msg')?.classList.add('show');
-        f.reset();
+        const submitBtn = f.querySelector('button[type="submit"]');
+        const successMsg = f.querySelector('.success-msg');
+        
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending...';
+        }
+        
+        fetch(f.action, {
+          method: f.method,
+          body: new FormData(f),
+          headers: {
+            'Accept': 'application/json'
+          }
+        }).then(response => {
+          if (response.ok) {
+            if (successMsg) {
+              successMsg.textContent = "Thank you! We've received your request and will be in touch shortly. ✨";
+              successMsg.style.background = 'var(--accent-blush)';
+              successMsg.classList.add('show');
+            }
+            f.reset();
+          } else {
+            response.json().then(data => {
+              if (successMsg) {
+                if (data && data.errors) {
+                  successMsg.textContent = "Error: " + data.errors.map(error => error.message).join(', ');
+                } else {
+                  successMsg.textContent = "Oops! There was a problem submitting your form.";
+                }
+                successMsg.style.background = '#fcdede';
+                successMsg.classList.add('show');
+              }
+            });
+          }
+        }).catch(error => {
+          if (successMsg) {
+            successMsg.textContent = "Oops! There was a problem submitting your form.";
+            successMsg.style.background = '#fcdede';
+            successMsg.classList.add('show');
+          }
+        }).finally(() => {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send booking request';
+          }
+        });
       }
     });
 
